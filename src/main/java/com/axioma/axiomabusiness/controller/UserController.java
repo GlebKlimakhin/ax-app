@@ -1,7 +1,7 @@
 package com.axioma.axiomabusiness.controller;
 
 import com.axioma.axiomabusiness.model.dto.UserDto;
-import com.axioma.axiomabusiness.model.entity.*;
+import com.axioma.axiomabusiness.model.entity.user.User;
 import com.axioma.axiomabusiness.service.UserService;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

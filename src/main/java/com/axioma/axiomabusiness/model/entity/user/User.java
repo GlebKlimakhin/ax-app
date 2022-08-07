@@ -1,6 +1,10 @@
-package com.axioma.axiomabusiness.model.entity;
+package com.axioma.axiomabusiness.model.entity.user;
 
-import com.axioma.axiomabusiness.model.entity.reading.ReadingSpeedExercise;
+import com.axioma.axiomabusiness.model.entity.Group;
+import com.axioma.axiomabusiness.model.entity.Homework;
+import com.axioma.axiomabusiness.model.entity.Role;
+import com.axioma.axiomabusiness.model.entity.exercises.AbstractExercise;
+import com.axioma.axiomabusiness.model.entity.exercises.reading.ReadingSpeedExercise;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
@@ -9,7 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -77,17 +80,11 @@ public class User {
     @JsonManagedReference
     Set<Role> roles;
 
-//    @ManyToMany
-//            @JoinTable(name = "users_arithmetic_exercises",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "exercise_id"))
-//    List<ArithmeticExercise> arithmeticExercises;
-
     @ManyToMany
-            @JoinTable(name = "users_reading_exercises",
+            @JoinTable(name = "users_exercises",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "exercise_id"))
-    List<ReadingSpeedExercise> readingExercises;
+    List<AbstractExercise> exercises;
 
     // todo image pfp
 }

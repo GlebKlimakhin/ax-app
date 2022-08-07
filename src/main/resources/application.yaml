@@ -3,8 +3,8 @@ spring:
     enabled: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: admin
+    username: user
+    password: root
     url: jdbc:postgresql://localhost:5432/postgres
   jpa:
     hibernate:

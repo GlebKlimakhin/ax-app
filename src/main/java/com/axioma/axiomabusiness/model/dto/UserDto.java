@@ -1,5 +1,6 @@
 package com.axioma.axiomabusiness.model.dto;
 
+import com.axioma.axiomabusiness.model.entity.files.ProfilePicture;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -13,5 +14,6 @@ public class UserDto {
     Long id;
     String firstname;
     String surname;
+    ProfilePicture pfp;
 
 }

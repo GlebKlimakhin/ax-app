@@ -1,18 +1,17 @@
 package com.axioma.axiomabusiness.service.exercise;
 
-import com.axioma.axiomabusiness.model.entity.AbstractExercise;
+import com.axioma.axiomabusiness.model.entity.exercises.AbstractExercise;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface AbstractExerciseService <E extends AbstractExercise> {
 
-    E save(E entity);
+    AbstractExercise save(E entity);
 
-    Optional<E> findById(long id);
+    Optional<AbstractExercise> findById(UUID id);
 
-    List<E> findAll();
-
-    void delete();
+    List<AbstractExercise> findAll();
 
 }

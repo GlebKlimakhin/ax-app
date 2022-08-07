@@ -1,6 +1,7 @@
 package com.axioma.axiomabusiness.service;
 
 import com.axioma.axiomabusiness.model.entity.*;
+import com.axioma.axiomabusiness.model.entity.user.User;
 import com.axioma.axiomabusiness.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

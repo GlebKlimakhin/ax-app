@@ -1,5 +1,6 @@
 package com.axioma.axiomabusiness.repository;
 
+import com.axioma.axiomabusiness.model.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.axioma.axiomabusiness.model.entity.*;
 import org.springframework.stereotype.Repository;

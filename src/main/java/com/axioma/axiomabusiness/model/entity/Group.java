@@ -1,10 +1,12 @@
 package com.axioma.axiomabusiness.model.entity;
 
+import com.axioma.axiomabusiness.model.entity.user.User;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "groups")
@@ -17,7 +19,7 @@ public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    UUID id;
 
     @Column(name = "name", nullable = false)
     String name;

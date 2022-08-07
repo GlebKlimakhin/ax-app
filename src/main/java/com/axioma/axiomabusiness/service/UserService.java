@@ -1,6 +1,7 @@
 package com.axioma.axiomabusiness.service;
 
 import com.axioma.axiomabusiness.model.dto.UserDto;
+import com.axioma.axiomabusiness.model.entity.user.User;
 import com.axioma.axiomabusiness.repository.GroupRepository;
 import com.axioma.axiomabusiness.repository.HomeworkRepository;
 import com.axioma.axiomabusiness.repository.RoleRepository;
@@ -8,7 +9,6 @@ import com.axioma.axiomabusiness.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.axioma.axiomabusiness.model.entity.*;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;

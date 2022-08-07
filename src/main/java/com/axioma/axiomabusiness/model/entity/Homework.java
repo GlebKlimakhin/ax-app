@@ -1,11 +1,14 @@
 package com.axioma.axiomabusiness.model.entity;
 
+import com.axioma.axiomabusiness.model.entity.exercises.AbstractExercise;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "homeworks")
@@ -18,7 +21,7 @@ public class Homework {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    UUID id;
 
     @Column(name = "start_date")
     @CreationTimestamp
@@ -27,11 +30,11 @@ public class Homework {
     @Column(name = "deadline_date")
     Date deadline;
 
-//    @ManyToMany
-//            @JoinTable(name = "homeworks_exercises",
-//            joinColumns = @JoinColumn(name = "homework_id"),
-//            inverseJoinColumns = @JoinColumn(name = "exercise_id"))
-//    Set<ArithmeticExercise> arithmeticExercises;
+    @ManyToMany
+    @JoinTable(name = "homeworks_exercises",
+    joinColumns = @JoinColumn(name = "homework_id"),
+    inverseJoinColumns = @JoinColumn(name = "exercise_id"))
+    Set<AbstractExercise> abstractExercises;
 
     @ManyToOne
     @JoinColumn(name = "group_id")

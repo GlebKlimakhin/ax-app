@@ -1,42 +1,41 @@
-package com.axioma.axiomabusiness.service.exercise;
+package com.axioma.axiomabusiness.service.exercise.speed;
 
-import com.axioma.axiomabusiness.model.entity.AbstractExercise;
-import com.axioma.axiomabusiness.model.entity.reading.ReadingSpeedExercise;
-import com.axioma.axiomabusiness.repository.exercise.ReadingExerciseRepository;
+import com.axioma.axiomabusiness.model.entity.exercises.AbstractExercise;
+import com.axioma.axiomabusiness.model.entity.exercises.ExerciseType;
+import com.axioma.axiomabusiness.model.entity.exercises.reading.ReadingSpeedExercise;
+import com.axioma.axiomabusiness.repository.exercise.AbstractExerciseRepository;
+import com.axioma.axiomabusiness.service.exercise.AbstractExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
-public class ReadingExerciseService implements AbstractExerciseService<Reading> {
+public class SpeedExerciseService implements AbstractExerciseService<ReadingSpeedExercise> {
 
-    private ReadingExerciseRepository exerciseRepository;
+    private AbstractExerciseRepository<ReadingSpeedExercise> exerciseRepository;
 
     @Autowired
-    public void setExerciseRepository(ReadingExerciseRepository exerciseRepository) {
+    public void setExerciseRepository(AbstractExerciseRepository<ReadingSpeedExercise> exerciseRepository) {
         this.exerciseRepository = exerciseRepository;
     }
 
     @Override
-    public AbstractExercise save(AbstractExercise entity) {
-        return null;
-    }
-
-    public Optional<ReadingSpeedExercise> findById(long id) {
-        return exerciseRepository.findById(id);
+    public ReadingSpeedExercise save(ReadingSpeedExercise readingSpeedExercise) {
+        return exerciseRepository.save(readingSpeedExercise);
     }
 
     @Override
-    public List findAll() {
-        return null;
+    public Optional<AbstractExercise> findById(UUID id) {
+        return exerciseRepository.findAllByType(ExerciseType.READING_SPEED_EXERCISE)
+                .stream().filter(e -> e.getId().equals(id)).findFirst();
     }
 
     @Override
-    public void delete() {
-
+    public List<AbstractExercise> findAll() {
+        return exerciseRepository.findAll();
     }
-
 
 }
